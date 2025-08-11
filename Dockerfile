@@ -40,6 +40,11 @@ COPY --from=build /build/apps/nextjs/.next/static ./.next/static
 # Copy the public assets
 COPY --from=build /build/apps/nextjs/public ./public
 
+ENV NODE_ENV=production
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
 USER nextjs
 
 EXPOSE 3000
