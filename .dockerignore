@@ -1,0 +1,40 @@
+# ===========================
+# Node & Bun dependencies
+# ===========================
+node_modules
+**/node_modules
+bun.lockb
+
+# ===========================
+# Build artifacts
+# ===========================
+.next
+dist
+out
+build
+.cache
+
+# ===========================
+# OS / Editor junk
+# ===========================
+.DS_Store
+Thumbs.db
+*.swp
+*.log
+
+# ===========================
+# Git & local configs
+# ===========================
+.git
+.gitignore
+.env
+.env.*
+!.env.example
+
+# ===========================
+# Test / Docs
+# ===========================
+coverage
+__tests__
+__mocks__
+*.md
