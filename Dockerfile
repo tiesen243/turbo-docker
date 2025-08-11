@@ -31,21 +31,21 @@ RUN bun run build -F @turbo-docker/nextjs... --ui stream
 # ===========================
 FROM base AS final
 WORKDIR /app
+
 # Copy installed dependencies from the build stage
 COPY --from=build /build/node_modules ./node_modules
-
 
 ENV NODE_ENV=production
 
 RUN addgroup --system --gid 1001 bun
 RUN adduser --system --uid 1001 nextjs
 
+# Copy the public assets
+COPY --from=build /build/apps/nextjs/public ./public
 # Copy the standalone Next.js build output
 COPY --from=build --chown=nextjs:bun /build/apps/nextjs/.next/standalone/apps/nextjs .
 # Copy Next.js static files
 COPY --from=build --chown=nextjs:bun /build/apps/nextjs/.next/static ./.next/static
-# Copy the public assets
-COPY --from=build /build/apps/nextjs/public ./public
 
 USER nextjs
 
