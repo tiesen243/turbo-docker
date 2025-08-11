@@ -37,15 +37,15 @@ COPY --from=build /build/node_modules ./node_modules
 
 ENV NODE_ENV=production
 
-RUN addgroup --system --gid 1001 bun
+RUN addgroup --system --gid 1001 bunjs
 RUN adduser --system --uid 1001 nextjs
 
 # Copy the public assets
 COPY --from=build /build/apps/nextjs/public ./public
 # Copy the standalone Next.js build output
-COPY --from=build --chown=nextjs:bun /build/apps/nextjs/.next/standalone/apps/nextjs .
+COPY --from=build --chown=nextjs:bunjs /build/apps/nextjs/.next/standalone/apps/nextjs .
 # Copy Next.js static files
-COPY --from=build --chown=nextjs:bun /build/apps/nextjs/.next/static ./.next/static
+COPY --from=build --chown=nextjs:bunjs /build/apps/nextjs/.next/static ./.next/static
 
 USER nextjs
 
