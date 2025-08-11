@@ -1,0 +1,38 @@
+{
+  "name": "@turbo-docker/nextjs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "bun run with-env next build",
+    "clean": "git clean -xdf .cache .next .turbo node_modules",
+    "dev": "bun run with-env next dev --turbopack",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "start": "bun run with-env next start",
+    "typecheck": "tsc --noEmit",
+    "with-env": "dotenv -e ../../.env --"
+  },
+  "prettier": "@turbo-docker/prettier-config",
+  "dependencies": {
+    "@turbo-docker/ui": "workspace:*",
+    "@turbo-docker/validators": "workspace:*",
+    "next": "^15.4.5",
+    "react": "catalog:react",
+    "react-dom": "catalog:react"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "catalog:tailwind",
+    "@turbo-docker/eslint-config": "workspace:*",
+    "@turbo-docker/prettier-config": "workspace:*",
+    "@turbo-docker/tsconfig": "workspace:*",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:react",
+    "@types/react-dom": "catalog:react",
+    "dotenv-cli": "catalog:",
+    "eslint": "catalog:",
+    "prettier": "catalog:",
+    "tailwindcss": "catalog:tailwind",
+    "typescript": "catalog:"
+  }
+}

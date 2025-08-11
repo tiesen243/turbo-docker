@@ -1,0 +1,24 @@
+{
+  "name": "@turbo-docker/prettier-config",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "typecheck": "tsc --noEmit"
+  },
+  "prettier": "@turbo-docker/prettier-config",
+  "dependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.5.1",
+    "prettier-plugin-tailwindcss": "^0.6.14"
+  },
+  "devDependencies": {
+    "@turbo-docker/tsconfig": "workspace:*",
+    "prettier": "catalog:",
+    "typescript": "catalog:"
+  }
+}

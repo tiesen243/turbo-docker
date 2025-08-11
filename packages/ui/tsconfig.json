@@ -1,0 +1,12 @@
+{
+  "extends": "@turbo-docker/tsconfig/react.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@turbo-docker/ui/*": ["./src/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
