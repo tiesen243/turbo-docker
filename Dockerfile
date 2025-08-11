@@ -42,5 +42,6 @@ COPY --from=build /build/apps/nextjs/public ./public
 
 # Expose the port the app runs on
 EXPOSE 3000
+ENV PORT=3000
 # Start the Next.js standalone server using Bun
 CMD ["bun", "server.js"]
