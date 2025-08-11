@@ -33,7 +33,7 @@ FROM base AS final
 WORKDIR /app
 
 # Copy installed dependencies from the build stage
-COPY --from=build /build/node_modules ./node_modules
+# COPY --from=build /build/node_modules ./node_modules
 
 ENV NODE_ENV=production
 
